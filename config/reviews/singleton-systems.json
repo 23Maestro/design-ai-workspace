@@ -3,7 +3,10 @@
   "reviewId": "design-ai-workspace",
   "intent": "Check the design harness template and its source files before sharing.",
   "baseRef": "HEAD",
-  "requiredPasses": ["initial", "verification"],
+  "requiredPasses": [
+    "initial",
+    "verification"
+  ],
   "contractFiles": [
     "AGENTS.md",
     "README.md",
@@ -12,11 +15,39 @@
     "docs/agents/issue-tracker.md",
     "docs/agents/triage-labels.md",
     "skills-manifest.json",
-    "scripts/check_workspace.py"
+    "scripts/check_workspace.py",
+    "CLAUDE.md",
+    "docs/quick-start.md",
+    "scripts/sync_claude_skills.py"
   ],
   "checks": [
-    { "checkId": "diff-integrity", "command": "git", "args": ["diff", "--check"], "timeoutMs": 30000 },
-    { "checkId": "workspace-files", "command": "python3", "args": ["scripts/check_workspace.py"], "timeoutMs": 30000 }
+    {
+      "checkId": "diff-integrity",
+      "command": "git",
+      "args": [
+        "diff",
+        "--check"
+      ],
+      "timeoutMs": 30000
+    },
+    {
+      "checkId": "workspace-files",
+      "command": "python3",
+      "args": [
+        "scripts/check_workspace.py"
+      ],
+      "timeoutMs": 30000
+    },
+    {
+      "checkId": "claude-entry-regressions",
+      "command": "python3",
+      "args": [
+        "scripts/test_workspace.py"
+      ],
+      "timeoutMs": 30000
+    }
   ],
-  "humanApproval": { "required": true }
+  "humanApproval": {
+    "required": true
+  }
 }

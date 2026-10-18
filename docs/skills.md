@@ -3,6 +3,9 @@
 These are local copies of adapted Matt Pocock skills. Source file hashes are
 in `skills-manifest.json`. Supporting files and invocation settings are kept.
 Named skills are launched only when the user asks.
+Claude entry files in `.claude/skills/` point to the same shared instructions.
+Their frontmatter sets `disable-model-invocation: true`. Codex keeps its
+invocation settings in `agents/openai.yaml`. See [the quick start](quick-start.md).
 
 | Skill | Place in the flow |
 | --- | --- |

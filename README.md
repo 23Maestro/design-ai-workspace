@@ -18,7 +18,14 @@ how it looks on a phone. Try it with a keyboard, too.
 
 ## Start here
 
-Ask a developer to help with the first setup:
+1. Click **Use this template** on GitHub to make your own copy.
+2. Open the copy in Claude Code or Codex.
+3. Follow [the quick start](docs/quick-start.md) to check the skills.
+
+Matt's task and doc setup is filled in. You do not need to run it again unless
+you want to change those rules.
+
+To use the kit with an app you have, ask a developer to help:
 
 - [Set up your app](docs/app-setup.md). Use the app you have.
 - [List its UI parts](design-system/components.md). These are React components.

@@ -5,12 +5,14 @@ import hashlib
 import json
 import re
 import sys
+from sync_claude_skills import check_entries
 
 
 def check(root):
     errors = []
     required = [
-        "README.md", "AGENTS.md", "CONTEXT.md", "LICENSE",
+        "README.md", "AGENTS.md", "CLAUDE.md", "CONTEXT.md", "LICENSE",
+        "docs/quick-start.md",
         "THIRD_PARTY_NOTICES.md", "docs/workflow.md", "docs/app-setup.md",
         "docs/agents/domain.md", "docs/agents/issue-tracker.md",
         "docs/agents/triage-labels.md", "briefs/pilot.md", "templates/review.md",
@@ -19,6 +21,10 @@ def check(root):
     for name in required:
         if not (root / name).is_file():
             errors.append(f"Missing file: {name}")
+    errors.extend(check_entries(root))
+    claude_guide = root / "CLAUDE.md"
+    if claude_guide.is_file() and "@AGENTS.md" not in claude_guide.read_text().splitlines():
+        errors.append("CLAUDE.md must import the shared AGENTS.md")
     manifest = json.loads((root / "skills-manifest.json").read_text())
     for name, expected in manifest["files"].items():
         source = root / name

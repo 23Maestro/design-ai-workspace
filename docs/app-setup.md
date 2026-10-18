@@ -5,11 +5,21 @@ before implementation. An engineer owns the first setup.
 
 ## Copy with care
 
-Read the target repo's agent rules first. Compare `.agents/skills/` names before
-copying. Merge approved rules into the existing agent guide. Do not overwrite
+Read the target repo's agent rules first. Compare `.agents/skills/` and
+`.claude/skills/` names before copying. Merge approved rules into the existing agent guide. Do not overwrite
 an existing `AGENTS.md`, `CONTEXT.md`, component library, or skill folder.
+For Codex, bring in the shared `.agents/skills/` folders you need. For Claude,
+also bring in the matching `.claude/skills/` entry folders. Keep their paths
+the same so each entry still points to the shared skill. Merge `@AGENTS.md`
+into an existing `CLAUDE.md` when those rules should be shared. Do not replace
+its current content. If there is no `CLAUDE.md`, add the kit's import file.
+This does not add hooks or change models.
+
 Copy the design-system pages and brief only after choosing their target paths.
 Keep a single task tracker and update links to match the chosen paths.
+If its setup files are missing or the tracker differs, invoke
+`setup-matt-pocock-skills` there before build work. The template copy already
+has a local tracker default. Check [the quick start](quick-start.md).
 
 ## Record the app
 

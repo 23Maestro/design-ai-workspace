@@ -2,6 +2,7 @@
 
 ## 1. Connect the real app
 
+Follow [the quick start](quick-start.md) to load the skills in your tool.
 An engineer records the app commands, existing React components, and token
 sources using [app setup](app-setup.md). Keep the current Figma workflow for
 ideas and approved references. A second design app is not required.

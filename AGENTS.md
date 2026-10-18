@@ -30,6 +30,7 @@ the user's explicit request. A review-ready change does not start those actions.
 
 ## Agent skills
 
-The bundled skills are in `.agents/skills/`; see `docs/skills.md`.
+The shared skills are in `.agents/skills/`. Claude entry files are in
+`.claude/skills/`. See `docs/quick-start.md` and `docs/skills.md`.
 Local tracker rules are in `docs/agents/issue-tracker.md`.
 The glossary is `CONTEXT.md`. Durable decisions go in `docs/adr/` when approved.
