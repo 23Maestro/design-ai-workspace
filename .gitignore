@@ -1,0 +1,11 @@
+# Local secrets and private inputs
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+.DS_Store
+node_modules/
+.next/
+dist/
+coverage/

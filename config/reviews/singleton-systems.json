@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "design-ai-workspace",
+  "intent": "Check the design harness template and its source files before sharing.",
+  "baseRef": "HEAD",
+  "requiredPasses": ["initial", "verification"],
+  "contractFiles": [
+    "AGENTS.md",
+    "README.md",
+    "CONTEXT.md",
+    "docs/agents/domain.md",
+    "docs/agents/issue-tracker.md",
+    "docs/agents/triage-labels.md",
+    "skills-manifest.json",
+    "scripts/check_workspace.py"
+  ],
+  "checks": [
+    { "checkId": "diff-integrity", "command": "git", "args": ["diff", "--check"], "timeoutMs": 30000 },
+    { "checkId": "workspace-files", "command": "python3", "args": ["scripts/check_workspace.py"], "timeoutMs": 30000 }
+  ],
+  "humanApproval": { "required": true }
+}
